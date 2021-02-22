@@ -32,11 +32,10 @@ jobs:
             npm run build:prod --prefix ./frontend
             npm run deploy:prod --prefix ./frontend
 
-        - name: Push Build to Releases
-          uses: ncipollo/release-action@v1
-          with:
-            artifacts: "backend/templates/*,backend/static/* "
-            token: ${{ secrets.TOKEN }}
+        - name: Push Build to Master
+          uses: mikeal/publish-to-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
         - name: repo-sync
           uses: wei/git-sync@v1
