@@ -17,23 +17,7 @@ def get_exams():
     breed_objects = session.query(Breed).all()
 
     # transforming into JSON-serializable objects
-    return BreedSchema(many=True).dump(exam_objects) # jsonify(exams.data)
+    return BreedSchema(many=True).dump(breed_objects) # jsonify(exams.data)
 
-# @app.route('/survey', methods=['POST'])
-# def add_exam():
-#     # mount exam object
-#     posted_exam = ExamSchema(only=('title', 'description'))\
-#         .load(request.get_json())
-
-#     exam = Exam(**posted_exam.data, created_by="HTTP post request")
-
-#     # persist exam
-#     session = Session()
-#     session.add(exam)
-#     session.commit()
-   # return created exam
-    # new_exam = ExamSchema().dump(exam).data
-    # session.close()
-    # return jsonify(new_exam), 201
 if __name__ == "__main__":
     app.run(debug=True)
