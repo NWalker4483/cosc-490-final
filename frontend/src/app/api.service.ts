@@ -5,6 +5,7 @@ import { catchError, timeout } from 'rxjs/operators';
 
 import {API_URL} from './env';
 import {Breed} from './breed-voter/breed.model';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,24 @@ export class ApiService {
   getBreeds(): Observable<Breed[]> {
     const url = `${API_URL}/breeds`;
     return this.http
-      .get<Breed[]>(url);
+      .get<Breed[]>(url).pipe(
+        catchError(this.handleError<Breed[]>('getHeroes', []))
+      );
+    }
+    private handleError<T>(operation = 'operation', result?: T) {
+      return (error: any): Observable<T> => {
+    
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
+    
+        // TODO: better job of transforming error for user consumption
+        this.log(`${operation} failed: ${error.message}`);
+    
+        // Let the app keep running by returning an empty result.
+        return of(result as T);
+      };
+    }
+    private log(message: string) {
+      console.log(message);
     }
 }

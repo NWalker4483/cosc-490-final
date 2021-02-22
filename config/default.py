@@ -6,8 +6,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 JSON_SORT_KEYS = False  # CRITICAL. Do not sort the data when returning values to the front end.
 
-API_TOKEN = environ.get('API_TOKEN', default="CHANGE_THIS_IN_PROD")
-
 NAME = "Woof Voter"
 FLASK_PORT = environ.get('FLASK_PORT', default="5000")
 
@@ -18,7 +16,6 @@ DB_USER = environ.get('DB_USER', default="sql3393896")
 DB_PASSWORD = environ.get('DB_PASSWORD', default="R6VwdHsCqW")
 
 TESTING = environ.get('TESTING', default="true")
-
 
 SQLALCHEMY_DATABASE_URI = environ.get(
     'SQLALCHEMY_DATABASE_URI',

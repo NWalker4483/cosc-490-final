@@ -3,7 +3,47 @@
 on:
   pull_request:
     types: [closed] 
+name: Deploy Angular to Glitch 
 jobs:
+  build:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [12.x]
+
+      steps:
+        - uses: actions/checkout@v1
+
+        - name: Cache node modules
+          uses: actions/cache@v1
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-
+        - name: Node ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
+        - name: npm install and npm run build
+          run: |
+            npm i
+            npm run build:prod
+        - name: copy index
+          uses: canastro/copy-file-action@master
+          with:
+            source: "dist/frontend/index.html"
+            target: "backend/templates/index.html"
+        - name: copy file
+          uses: canastro/copy-file-action@master
+          with:
+            source: "dist/frontend/*"
+            target: "backend/static/*"
+        - name: Push Build to Releases
+          uses: ncipollo/release-action@v1
+          with:
+            artifacts: "dist/frontend/*"
+            token: ${{ secrets.TOKEN }}
   repo-sync:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
@@ -17,3 +57,4 @@ jobs:
         DESTINATION_BRANCH: "master"
       with:
         args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
+
