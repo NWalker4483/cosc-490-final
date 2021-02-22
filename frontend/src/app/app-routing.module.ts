@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { BreedVoterComponent } from './breed-voter/breed-voter.component';
 const routes: Routes = [
   {
+    path: '',
+    component: BreedVoterComponent
+  },{
     path: 'vote',
     component: BreedVoterComponent
   },
