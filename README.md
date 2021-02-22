@@ -9,7 +9,7 @@ cd fronted
 npm install
 cd ../
 pipenv install 
-pipenv shell
+pipenv run python app.py
 flask run 
 ng serve
 
