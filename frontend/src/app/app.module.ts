@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
  
 @NgModule({
@@ -18,6 +19,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
   ],
   imports: [
     MatCardModule,
+    MatButtonModule,
     NgxSliderModule,
     HttpClientModule,
     MatFormFieldModule,
