@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Breed } from './breed.model';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-breed-voter',
@@ -14,14 +14,20 @@ export class BreedVoterComponent implements OnInit {
 
   breedOptions: Breed[] = [];
   form: FormGroup;
-  constructor(private api: ApiService,
-    private formBuilder: FormBuilder) {
-      this.form = this.formBuilder.group({
-        name: '',
-        email: '',
-        message: ''
+  sliderOptions: Options = {
+    floor: 1,
+    ceil: 6,
+    step: 1
+  };
+
+  constructor(private api: ApiService,) {
+      this.form = new FormGroup({
+        firstName: new FormControl(''),
+        lastName: new FormControl(''),
+        input2: new FormControl([1])
       });
      }
+  
 
   ngOnInit(): void {
     this.getBreeds();
@@ -38,9 +44,7 @@ onChanges(): void {
     console.log(
     `Hello,
 
-    My name is ${val.name} and my email is ${val.email}.
-
-    I would like to tell you that ${val.message}.`);
+    My name is ${val.firstName} ${val.lastName}`);
   });
 }
 
