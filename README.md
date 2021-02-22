@@ -5,11 +5,12 @@ Updated ReadMe
 https://nodejs.org/en/download/
 
 clone the project 
-cd fronted 
+cd frontend 
 npm install
 cd ../
 pipenv install 
 pipenv run python app.py
+or
 flask run 
 ng serve
 

@@ -1,0 +1,9 @@
+flask 
+sqlalchemy 
+psycopg2-binary 
+marshmallow 
+flask-cors 
+marshmallow-sqlalchemy 
+flask-sqlalchemy 
+mysqlclient 
+flask-migrate 
