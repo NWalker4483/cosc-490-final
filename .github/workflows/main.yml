@@ -4,9 +4,9 @@ on:
   pull_request:
     types: [closed] 
 name: Deploy Angular to Glitch 
-if: github.event.pull_request.merged == true
 jobs:
   build:
+      if: github.event.pull_request.merged == true
       runs-on: ubuntu-latest
       strategy:
         matrix:
