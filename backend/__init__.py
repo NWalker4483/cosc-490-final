@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 from flask_migrate import Migrate
 
@@ -11,6 +11,10 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from backend.models import Breed, BreedSchema
+@app.route('/', methods=['GET'])
+def root():
+    return render_template('index.html') # Return index.html 
+
 # Returns all information about stored dog breeds
 @app.route('/breeds')
 def get_breeds():
