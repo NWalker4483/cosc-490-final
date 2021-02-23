@@ -26,7 +26,7 @@ jobs:
           with:
             node-version: ${{ matrix.node-version }}
 
-        - name: npm install and npm run build
+        - name: npm install and npm run build 
           run: |
             npm i --prefix ./frontend/
             npm run build:prod --prefix ./frontend
@@ -37,16 +37,19 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
             BRANCH_NAME: main
-
-        - name: repo-sync
-          uses: wei/git-sync@v1
-          env:
-            SOURCE_REPO: "https://github.com/NWalker4483/woof.git"
-            SOURCE_BRANCH: "main"
-            DESTINATION_REPO: ${{ secrets.GLITCH_GIT_URL }}
-            DESTINATION_BRANCH: "master"
-          with:
-            args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
+  repo-sync:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps: 
+      -name: sync repos
+      uses: wei/git-sync@v1
+      env:
+        SOURCE_REPO: "https://github.com/NWalker4483/woof.git"
+        SOURCE_BRANCH: "main"
+        DESTINATION_REPO: ${{ secrets.GLITCH_GIT_URL }}
+        DESTINATION_BRANCH: "master"
+      with:
+        args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
 
 
   
