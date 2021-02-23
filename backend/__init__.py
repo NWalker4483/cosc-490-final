@@ -27,7 +27,7 @@ def get_breeds():
     website = request.args.get('website')
     
     # transforming into JSON-serializable objects
-    return jsonify(BreedSchema(many=True).dump(breed_objects))
+    return jsonify([]) #BreedSchema(many=True).dump(breed_objects))
 
 if __name__ == "__main__":
     app.run(debug=True)
