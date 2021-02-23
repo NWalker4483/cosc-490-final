@@ -29,3 +29,5 @@
 * ```npm run deploy:prod --prefix ./frontend```
 * ```pipenv run python app.py```
 * Go to [localhost:5000](http://localhost:5000)
+
+## To visit the actual frontend go here [https://hot-luxurious-paste.glitch.me/static/](https://hot-luxurious-paste.glitch.me/static/)
