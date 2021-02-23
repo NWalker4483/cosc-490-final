@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import {Observable , throwError} from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
-
-import {API_URL} from './env';
+import { environment } from '@environment';
 import {Breed} from './breed-voter/breed.model';
 import { of } from 'rxjs';
 
@@ -15,7 +14,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getBreeds(): Observable<Breed[]> {
-    const url = `${API_URL}/breeds`;
+    const url = `${environment.API_URL}/breeds`;
     return this.http
       .get<Breed[]>(url).pipe(
         catchError(this.handleError<Breed[]>('getHeroes', []))

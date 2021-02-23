@@ -1,8 +1,17 @@
 .dog-card {
-    max-width: 400px;
+    width: 300px;
   }
   
   .dog-header-image {
     background-size: cover;
   }
   
+/* The heart of the matter */
+.testimonial-group > .row {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .dog-card {
+  display: inline-block;
+}
