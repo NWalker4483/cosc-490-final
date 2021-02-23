@@ -41,10 +41,8 @@ export class BreedVoterComponent implements OnInit {
   
 onChanges(): void {
   this.form.valueChanges.subscribe(val => {
-    console.log(
-    `Hello,
-
-    My name is ${val.firstName} ${val.lastName}`);
+   
+    this.getBreeds();
   });
 }
 
