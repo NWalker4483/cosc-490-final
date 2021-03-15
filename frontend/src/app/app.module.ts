@@ -11,13 +11,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
- 
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 @NgModule({
   declarations: [
     AppComponent,
     BreedVoterComponent
   ],
   imports: [
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
     MatCardModule,
     MatButtonModule,
     NgxSliderModule,

@@ -10,7 +10,6 @@
     "e2e": "ng e2e",
     "build:prod": "ng build --prod --build-optimizer --baseHref='/static/'",
     "deploy:prod": "mv dist/frontend/index.html ../backend/templates/index.html; mv dist/frontend/* ../backend/static"
-
   },
   "private": true,
   "dependencies": {

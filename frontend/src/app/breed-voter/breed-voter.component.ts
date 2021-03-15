@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Breed } from './breed.model';
+import { Breed } from '../models/breed.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Options } from '@angular-slider/ngx-slider';
 
@@ -30,19 +30,20 @@ export class BreedVoterComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.getBreeds();
+    //this.getBreeds();
+    this.api.getActiveProposals().subscribe(data=>console.log(data));
     this.onChanges();
   }
 
 
-  getBreeds(): void {
-    this.api.getBreeds().subscribe(data => this.breedOptions = data);
-  }
+  // getBreeds(): void {
+  //   this.api.getBreeds().subscribe(data => this.breedOptions = data);
+  // }
   
 onChanges(): void {
   this.form.valueChanges.subscribe(val => {
-   
-    this.getBreeds();
+
+    //this.getBreeds();
   });
 }
 
