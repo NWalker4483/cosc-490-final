@@ -1,27 +1,3 @@
-//Import Hyperledger Fabric 1.4 programming model - fabric-network
-'use strict';
-
-const { FileSystemWallet, Gateway, X509WalletMixin } = require('fabric-network');
-const path = require('path');
-const fs = require('fs');
-
-//connect to the config file
-const configPath = path.join(process.cwd(), './config.json');
-const configJSON = fs.readFileSync(configPath, 'utf8');
-const config = JSON.parse(configJSON);
-let connection_file = config.connection_file;
-// let userName = config.userName;
-let gatewayDiscovery = config.gatewayDiscovery;
-let appAdmin = config.appAdmin;
-let orgMSPID = config.orgMSPID;
-
-// connect to the connection file
-const ccpPath = path.join(process.cwd(), connection_file);
-const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
-const ccp = JSON.parse(ccpJSON);
-
-
-const util = require('util');
 
 exports.connectToNetwork = async function (userName) {
   
@@ -55,9 +31,9 @@ exports.connectToNetwork = async function (userName) {
     // // Connect to our local fabric
     // const network = await gateway.getNetwork('mychannel');
 
-    console.log('Connected to mychannel. ');
+    // console.log('Connected to mychannel. ');
     // Get the contract we have installed on the peer
-    const contract = await network.getContract('voterContract');
+    // const contract = await network.getContract('voterContract');
 
 
     let networkObj = {

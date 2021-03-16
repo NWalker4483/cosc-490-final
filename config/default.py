@@ -29,6 +29,7 @@ appAdminSecret = "app-adminpw"
 
 connectionFile = environ.get('connectionFile', default="ibpConnection.json")
 channelName = "mychannel"
+contractName = "voterContract"
 orgMSPID = "votermsp"
 caName = "https://169.57.85.193:32424"
 userName = "V1"
