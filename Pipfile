@@ -13,6 +13,7 @@ marshmallow-sqlalchemy = "*"
 flask-sqlalchemy = "*"
 mysqlclient = "*"
 flask-migrate = "*"
+fabric-sdk-py = {editable = true, git = "https://github.com/hyperledger/fabric-sdk-py.git"}
 
 [dev-packages]
 

@@ -28,32 +28,32 @@ exports.connectToNetwork = async function (userName) {
   const gateway = new Gateway();
 
   try {
-    const walletPath = path.join(process.cwd(), 'wallet');
-    const wallet = new FileSystemWallet(walletPath);
-    console.log(`Wallet path: ${walletPath}`);
-    console.log('userName: ');
-    console.log(userName);
+    // const walletPath = path.join(process.cwd(), 'wallet');
+    // const wallet = new FileSystemWallet(walletPath);
+    // console.log(`Wallet path: ${walletPath}`);
+    // console.log('userName: ');
+    // console.log(userName);
 
-    console.log('wallet: ');
-    console.log(util.inspect(wallet));
-    console.log('ccp: ');
-    console.log(util.inspect(ccp));
-    // userName = 'V123412';
-    const userExists = await wallet.exists(userName);
-    if (!userExists) {
-      console.log('An identity for the user ' + userName + ' does not exist in the wallet');
-      console.log('Run the registerUser.js application before retrying');
-      let response = {};
-      response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
-      return response;
-    }
+    // console.log('wallet: ');
+    // console.log(util.inspect(wallet));
+    // console.log('ccp: ');
+    // console.log(util.inspect(ccp));
+    // // userName = 'V123412';
+    // const userExists = await wallet.exists(userName);
+    // if (!userExists) {
+    //   console.log('An identity for the user ' + userName + ' does not exist in the wallet');
+    //   console.log('Run the registerUser.js application before retrying');
+    //   let response = {};
+    //   response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
+    //   return response;
+    // }
 
-    console.log('before gateway.connect: ');
+    // console.log('before gateway.connect: ');
 
-    await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
+    // await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
-    // Connect to our local fabric
-    const network = await gateway.getNetwork('mychannel');
+    // // Connect to our local fabric
+    // const network = await gateway.getNetwork('mychannel');
 
     console.log('Connected to mychannel. ');
     // Get the contract we have installed on the peer

@@ -1,5 +1,6 @@
 import os
 import re
+import hfc
 from os import environ
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -21,6 +22,16 @@ SQLALCHEMY_DATABASE_URI = environ.get(
     'SQLALCHEMY_DATABASE_URI',
     default="mysql://%s:%s@%s:%s/%s" % (DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME)
 )
+
+WALLET_PATH = environ.get('WALLET_PATH', default="wallet")
+APP_ADMIN = environ.get('APP_ADMIN', default="app-admin")
+CONNECTION_FILE = environ.get('CONNECTION_FILE', default="ibpConnection.json")
+
+appAdminSecret = "app-adminpw"
+orgMSPID = "votermsp"
+caName = "https://169.57.85.193:32424"
+userName = "V1"
+gatewayDiscovery = { "enabled": True, "asLocalhost": False }
 
 SQLALCHEMY_TRACK_MODIFICATIONS=False
 print('SQLALCHEMY_DATABASE_URI = ', SQLALCHEMY_DATABASE_URI)
