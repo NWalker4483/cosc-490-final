@@ -143,14 +143,4 @@ app.post('/queryByKey', async (req, res) => {
   }
 });
 
-//get all assets in world state
-app.get('/activeProposals', async (req, res) => {
-
-  let networkObj = await network.connectToNetwork(appAdmin);
-  let response = await network.invoke(networkObj, true, 'queryAll', '');
-  let parsedResponse = await JSON.parse(response);
-  res.send(parsedResponse);
-
-});
-
 app.listen(process.env.PORT || 8081);

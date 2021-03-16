@@ -20,18 +20,18 @@ export class BreedVoterComponent implements OnInit {
     step: 1
   };
 
-  constructor(private api: ApiService,) {
+  constructor(private api: ApiService, ) {
       this.form = new FormGroup({
         firstName: new FormControl(''),
         lastName: new FormControl(''),
         input2: new FormControl([1])
       });
      }
-  
+
 
   ngOnInit(): void {
-    //this.getBreeds();
-    this.api.getActiveProposals().subscribe(data=>console.log(data));
+    // this.getBreeds();
+    this.api.getActiveProposals().subscribe(data => console.log(data));
     this.onChanges();
   }
 
@@ -39,11 +39,11 @@ export class BreedVoterComponent implements OnInit {
   // getBreeds(): void {
   //   this.api.getBreeds().subscribe(data => this.breedOptions = data);
   // }
-  
+
 onChanges(): void {
   this.form.valueChanges.subscribe(val => {
 
-    //this.getBreeds();
+    // this.getBreeds();
   });
 }
 
