@@ -11,26 +11,32 @@ app = Flask(__name__)
 app.config.from_object('config.default')
 CORS(app=app)
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-wallet = _wallet.FileSystenWallet(app.config["walletPath"])
+ 
 
-async def connectToNetwork(userName):
-    gateway = _gateway.Gateway()
+def connectToNetwork(userName):# * TODO Add Error Catching 
+    wallet = _wallet.FileSystenWallet(app.config["walletPath"])
 
     userExists = wallet.exists(userName) # Check to see if we've already enrolled the user.
     if not userExists: 
         response = f"An identity for the user ' + {userName} + ' does not exist in the wallet"
         return response
-    await gateway.connect(app.config["connectionFile"], \
-            {'wallet': wallet, 
-            'identity': userName,
-            'discovery': app.config["gatewayDiscovery"] })
+    
+    gateway = _gateway.Gateway()
+
+    response = loop.run_until_complete(gateway.connect(app.config["connectionFile"], \
+        {'wallet': wallet, 
+        'identity': userName,
+        'discovery': app.config["gatewayDiscovery"]}))
+
     network = gateway.networks.get(app.config["channelName"])
-    if not network:
-        print(12344342)
-        pass
-    print("1234542")
-    return network
+    assert(network != None)
+    contract = network.get_contract(app.config["contractName"])
+
+    return {
+      'contract': contract,
+      'network': network,
+      'gateway': gateway
+    }
 async def invoke():
     pass
 async def registerVoter ():
