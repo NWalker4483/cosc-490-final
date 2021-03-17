@@ -54,7 +54,6 @@ async function queryAll() {
     response = JSON.parse(response.toString());
     console.log(`response from evaluateTransaction: ${(response)}`)
    
-
     console.log('Transaction has been submitted');
 
     // Disconnect from the gateway.

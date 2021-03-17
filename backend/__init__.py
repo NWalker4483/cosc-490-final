@@ -7,14 +7,16 @@ from flask_migrate import Migrate
 from hfc.fabric_network import wallet as _wallet
 from hfc.fabric_network import gateway as _gateway
 import asyncio
+
 app = Flask(__name__)
 app.config.from_object('config.default')
 CORS(app=app)
 db = SQLAlchemy(app)
- 
+loop = asyncio.get_event_loop()
+
 
 def connectToNetwork(userName):# * TODO Add Error Catching 
-    wallet = _wallet.FileSystenWallet(app.config["walletPath"])
+    wallet = _wallet.FileSystenWallet(app.config["WALLET_PATH"])
 
     userExists = wallet.exists(userName) # Check to see if we've already enrolled the user.
     if not userExists: 
@@ -23,14 +25,14 @@ def connectToNetwork(userName):# * TODO Add Error Catching
     
     gateway = _gateway.Gateway()
 
-    response = loop.run_until_complete(gateway.connect(app.config["connectionFile"], \
+    response = loop.run_until_complete(gateway.connect(app.config["CONNECTION_FILE"], \
         {'wallet': wallet, 
         'identity': userName,
-        'discovery': app.config["gatewayDiscovery"]}))
+        'discovery': app.config["GATEWAY_DISCOVERY"]}))
 
-    network = gateway.networks.get(app.config["channelName"])
+    network = gateway.networks.get(app.config["CHANNEL_NAME"])
     assert(network != None)
-    contract = network.get_contract(app.config["contractName"])
+    contract = network.get_contract(app.config["CONTRACT_NAME"])
 
     return {
       'contract': contract,
@@ -46,7 +48,7 @@ async def registerVoter ():
 #     response = f"An identity for the admin user {app.config.appAdmin} does not exist in the wallet. Run the enrollAdmin.js application before retrying"
 #     return response
  
-# connectToNetwork(app.config["appAdmin"])
+print(connectToNetwork(app.config["APP_ADMIN"]))
 from backend.models import Breed, BreedSchema
 @app.route('/', methods=['GET'])
 def index():

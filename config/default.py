@@ -23,17 +23,17 @@ SQLALCHEMY_DATABASE_URI = environ.get(
     default="mysql://%s:%s@%s:%s/%s" % (DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME)
 )
 
-walletPath = environ.get('walletPath', default="wallet")
-appAdmin = environ.get('appAdmin', default="app-admin")
+WALLET_PATH = environ.get('walletPath', default="wallet")
+APP_ADMIN = environ.get('appAdmin', default="app-admin")
 appAdminSecret = "app-adminpw"
 
-connectionFile = environ.get('connectionFile', default="ibpConnection.json")
-channelName = "mychannel"
-contractName = "voterContract"
+CONNECTION_FILE = environ.get('connectionFile', default="ibpConnection.json")
+CHANNEL_NAME = "mychannel"
+CONTRACT_NAME = "voterContract"
 orgMSPID = "votermsp"
 caName = "https://169.57.85.193:32424"
 userName = "V1"
-gatewayDiscovery = { "enabled": True, "asLocalhost": False }
+GATEWAY_DISCOVERY = { "enabled": True, "asLocalhost": False }
 
 SQLALCHEMY_TRACK_MODIFICATIONS=False
 print('SQLALCHEMY_DATABASE_URI = ', SQLALCHEMY_DATABASE_URI)
