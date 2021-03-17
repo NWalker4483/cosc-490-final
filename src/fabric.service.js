@@ -96,6 +96,7 @@ app.post('/registerVoter', async (req, res) => {
     if (networkObj.error) {
       res.send(networkObj.error);
     }
+    
     console.log('network obj');
     console.log(util.inspect(networkObj));
 
