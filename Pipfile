@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+marshmallow = "*"
+flask-cors = "*"
+marshmallow-sqlalchemy = "*"
+flask-sqlalchemy = "*"
+mysqlclient = "*"
+flask-migrate = "*"
+fabric-sdk-py = {editable = true, git = "https://github.com/hyperledger/fabric-sdk-py.git"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
