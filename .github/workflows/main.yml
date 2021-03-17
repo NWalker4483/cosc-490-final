@@ -28,9 +28,9 @@ jobs:
 
         - name: npm install and npm run build and remove src files
           run: |
-            npm install
-            npm run build:prod 
-            npm run clean:prod 
+            npm install --prefix frontend
+            npm run build:prod --prefix frontend
+            npm run clean:prod --prefix frontend
 
         # - name: Push Build to Master
         #   uses: mikeal/publish-to-github-action@master
