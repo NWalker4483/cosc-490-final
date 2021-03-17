@@ -8,8 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --build-optimizer --baseHref='/static/'",
-    "deploy:prod": "mv dist/frontend/index.html ../backend/templates/index.html; mv dist/frontend/* ../backend/static"
+    "build:prod": "ng build --prod --build-optimizer",
+    "clean:dev": "rm ../*.js; rm ../*.css; mv dist/frontend/* ../../;",
+    "clean:prod": "rm ../*.js; rm ../*.css; rm ../*.ico; rm ../*.html; mv dist/frontend/* ../; rm -rf ../frontend;"
   },
   "private": true,
   "dependencies": {

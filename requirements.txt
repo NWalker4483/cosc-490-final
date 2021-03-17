@@ -1,0 +1,1 @@
+# This file is required so the Glitch recognizes that this is a flask site and runs the ./start.sh
