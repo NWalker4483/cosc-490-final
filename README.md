@@ -1,33 +1,27 @@
-# Woof
+# Frontend
 
-[![build status](https://github.com/coryrylan/angular-github-actions/workflows/Build/badge.svg)](https://github.com/coryrylan/angular-github-actions/actions)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
-## Step 1 (Downloading Source Code)
+## Development server
 
-* clone the project
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Step 2 (Installing Dependacies)
+## Code scaffolding
 
-* Install [Node.js](https://nodejs.org/en/download/)
-* open a terminal within the downloaded project folder
-* ```npm install --prefix ./frontend``` To install angular dependancies
-* ```python3 -m pip install pipenv```
-* ```pipenv install``` To install and manage python dependacies
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Step 3
+## Build
 
-* ### To launch frontend and backend seperately
-  
-* ```cd frontend; ng serve```
-* Open a second terminal and go to the project directory
-* ```pipenv run python app.py```
-* Go to [localhost:4200](http://localhost:4200)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-* ### To launch frontend and backend together like in production
+## Running unit tests
 
-* ```npm run build:prod --prefix ./frontend```
-* ```npm run deploy:prod --prefix ./frontend```
-* ```pipenv run python app.py```
-* Go to [localhost:5000](http://localhost:5000)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## To visit the actual frontend go here [https://hot-luxurious-paste.glitch.me/static/](https://hot-luxurious-paste.glitch.me/static/)
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
