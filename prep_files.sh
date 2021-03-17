@@ -4,4 +4,5 @@ rm *.ico
 rm index.html
 mv frontend/dist/frontend/* .
 rm -rf frontend
-mv server
+mv server/* .
+rm -rf server
