@@ -14,29 +14,29 @@ jobs:
       steps:
         - uses: actions/checkout@v1
 
-        # - name: Cache node modules
-        #   uses: actions/cache@v1
-        #   with:
-        #     path: ~/.npm
-        #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        #     restore-keys: |
-        #       ${{ runner.os }}-node-
-        # - name: Node ${{ matrix.node-version }}
-        #   uses: actions/setup-node@v1
-        #   with:
-        #     node-version: ${{ matrix.node-version }}
+        - name: Cache node modules
+          uses: actions/cache@v1
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-
+        - name: Node ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
 
-        # - name: npm install and npm run build
-        #   run: |
-        #     npm i --prefix ./frontend/
-        #     npm run build:prod --prefix ./frontend
-        #     npm run deploy:prod --prefix ./frontend
+        - name: npm install and npm run build and remove src files
+          run: |
+            npm install --prefix frontend
+            npm run build:prod --prefix frontend
+            bash prep_files.sh
 
-        # - name: Push Build to Master
-        #   uses: mikeal/publish-to-github-action@master
-        #   env:
-        #     GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        #     BRANCH_NAME: main
+        - name: Push Build to Master
+          uses: mikeal/publish-to-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
+            BRANCH_NAME: main
 
         - name: repo-sync
           uses: wei/git-sync@v1
