@@ -25,14 +25,15 @@ SQLALCHEMY_DATABASE_URI = environ.get(
 
 WALLET_PATH = environ.get('walletPath', default="wallet")
 APP_ADMIN = environ.get('appAdmin', default="app-admin")
-appAdminSecret = "app-adminpw"
+appAdminSecret = environ.get('appAdminPw', default="app-adminpw")
 
 CONNECTION_FILE = environ.get('connectionFile', default="ibpConnection.json")
 CHANNEL_NAME = "mychannel"
 CONTRACT_NAME = "voterContract"
-orgMSPID = "votermsp"
-caName = "https://169.57.85.193:32424"
-userName = "V1"
+ORG_MSPID = "votermsp"
+CA_NAME = "https://169.57.85.193:32424"
+
+USER_NAME = "V1"
 GATEWAY_DISCOVERY = { "enabled": True, "asLocalhost": False }
 
 SQLALCHEMY_TRACK_MODIFICATIONS=False

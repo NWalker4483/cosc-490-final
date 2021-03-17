@@ -14,8 +14,8 @@ CORS(app=app)
 db = SQLAlchemy(app)
 loop = asyncio.get_event_loop()
 
-
-def connectToNetwork(userName):# * TODO Add Error Catching 
+# * TODO Add Error Catching to all endpoint
+def connectToNetwork(userName):
     wallet = _wallet.FileSystenWallet(app.config["WALLET_PATH"])
 
     userExists = wallet.exists(userName) # Check to see if we've already enrolled the user.
@@ -26,7 +26,7 @@ def connectToNetwork(userName):# * TODO Add Error Catching
     gateway = _gateway.Gateway()
 
     response = loop.run_until_complete(gateway.connect(app.config["CONNECTION_FILE"], \
-        {'wallet': wallet, 
+        options = {'wallet': wallet, 
         'identity': userName,
         'discovery': app.config["GATEWAY_DISCOVERY"]}))
 
@@ -39,14 +39,70 @@ def connectToNetwork(userName):# * TODO Add Error Catching
       'network': network,
       'gateway': gateway
     }
-async def invoke():
+
+def invoke(networkObj, isQuery, func, args = None):
+    if isQuery:
+        if args:
+            pass
+            response = loop.run_until_complete(networkObj["contract"].evaluateTransaction(func, args))
+
+            # await networkObj.gateway.disconnect();
+    
+            # return response;
+        else:
+            pass
+            # let response = await networkObj.contract.evaluateTransaction(func);
+            # console.log(response);
+            # console.log(`Transaction ${func} without args has been evaluated`);
+    
+            # await networkObj.gateway.disconnect();
+    
+            # return response;
+        pass
+    else:
+        if args:
+            pass
+        else:
+            pass
     pass
-async def registerVoter ():
-    pass
-# adminExists = wallet.exists(app.config.appAdmin)    # Check to see if we've already enrolled the admin user.
-# if (not adminExists):
-#     response = f"An identity for the admin user {app.config.appAdmin} does not exist in the wallet. Run the enrollAdmin.js application before retrying"
-#     return response
+
+def registerVoter(voterId, registrarId, firstName, lastName):
+    wallet = _wallet.FileSystenWallet(app.config["WALLET_PATH"])
+
+    userExists = wallet.exists(voterId) # Check to see if we've already enrolled the user.
+
+    if userExists: 
+        response = f"An identity for the user ' + {voterId} + ' already exists in the wallet"
+        return response
+    
+    adminExists = wallet.exists(app.config["APP_ADMIN"])    # Check to see if we've already enrolled the admin user.
+    
+    if not adminExists:
+        response = f"An identity for the admin user {app.config['APP_ADMIN']} does not exist in the wallet. Run the enrollAdmin.js application before retrying"
+        return response
+
+    gateway = _gateway.Gateway()
+
+    response = loop.run_until_complete(gateway.connect(app.config["CONNECTION_FILE"], \
+        options = {'wallet': wallet, 
+        'identity': app.config["APP_ADMIN"],
+        'discovery': app.config["GATEWAY_DISCOVERY"]}))
+
+    # // Get the CA client object from the gateway for interacting with the CA.
+    # const ca = gateway.getClient().getCertificateAuthority();
+    # const adminIdentity = gateway.getCurrentIdentity();
+    # console.log(`AdminIdentity: + ${adminIdentity}`);
+
+    # // Register the user, enroll the user, and import the new identity into the wallet.
+    # const secret = await ca.register({ affiliation: '', enrollmentID: voterId, role: 'client' }, adminIdentity);
+
+    # const enrollment = await ca.enroll({ enrollmentID: voterId, enrollmentSecret: secret });
+    # const userIdentity = await X509WalletMixin.createIdentity(orgMSPID, enrollment.certificate, enrollment.key.toBytes());
+    # await wallet.import(voterId, userIdentity);
+    # console.log(`Successfully registered voter ${firstName} ${lastName}. Use voterId ${voterId} to login above.`);
+    # let response = `Successfully registered voter ${firstName} ${lastName}. Use voterId ${voterId} to login above.`;
+    # return response;
+
  
 print(connectToNetwork(app.config["APP_ADMIN"]))
 from backend.models import Breed, BreedSchema
