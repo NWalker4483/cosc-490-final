@@ -9,8 +9,11 @@ const path = require('path');
 const fs = require('fs');
 
 let network = require('./fabric/network.js');
+const static_folder = 'static/';
 
 const app = express();
+const port = 8081;
+
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
@@ -21,6 +24,9 @@ const config = JSON.parse(configJSON);
 
 //use this identity to query
 const appAdmin = config.appAdmin;
+
+// ---- SERVE STATIC FILES ---- //
+app.use('/',express.static(static_folder))
 
 //get all assets in world state
 app.get('/queryAll', async (req, res) => {
@@ -168,4 +174,4 @@ app.post('/queryByKey', async (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 8081);
+app.listen(process.env.PORT || port);
