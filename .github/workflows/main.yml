@@ -30,7 +30,7 @@ jobs:
           run: |
             npm install --prefix frontend
             npm run build:prod --prefix frontend
-            bash pred_files.sh
+            bash prep_files.sh
 
         - name: Push Build to Master
           uses: mikeal/publish-to-github-action@master
