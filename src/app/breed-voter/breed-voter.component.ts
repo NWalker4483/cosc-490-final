@@ -11,7 +11,7 @@ import { Options } from '@angular-slider/ngx-slider';
 })
 export class BreedVoterComponent implements OnInit {
 
-
+  ActiveProposals: JSON;
   breedOptions: Breed[] = [];
   form: FormGroup;
   sliderOptions: Options = {
@@ -28,13 +28,12 @@ export class BreedVoterComponent implements OnInit {
       });
      }
 
-
   ngOnInit(): void {
+
     // this.getBreeds();
     this.api.getActiveProposals().subscribe(data => console.log(data));
     this.onChanges();
   }
-
 
   // getBreeds(): void {
   //   this.api.getBreeds().subscribe(data => this.breedOptions = data);

@@ -20,7 +20,7 @@ export class ApiService {
   getActiveProposals(){
     const url = `${environment.API_URL}/queryAll`;
     return this.http.get(url).pipe(
-            catchError(this.handleError<Breed[]>('getHeroes', []))
+            catchError(this.handleError<JSON>('getHeroes', JSON))
           );
   }
     private handleError<T>(operation = 'operation', result?: T) {
