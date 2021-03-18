@@ -1,4 +1,3 @@
-
 rm -rf server/static # Remove existing frontend build
 mkdir -p server/static # Remake Folder 
 mv frontend/dist/frontend/ server/static # Move new build into appropriate place

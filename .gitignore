@@ -1,12 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 node_modules
 wallet
-index.html
-main.*.js
-styles.*.css
-polyfills.*.js
-runtime.*.js
-favicon.ico
+frontend/dist
+server/static
 # compiled output
 /dist
 /tmp
