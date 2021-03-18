@@ -8,7 +8,7 @@ const util = require('util');
 const path = require('path');
 const fs = require('fs');
 
-let network = require('./fabric/network.js');
+let network = require('./fabric/network.js.js');
 const static_folder = 'static/';
 
 const app = express();

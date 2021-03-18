@@ -3,6 +3,7 @@ node_modules
 wallet
 frontend/dist
 server/static
+.vscode
 # compiled output
 /dist
 /tmp

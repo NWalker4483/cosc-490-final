@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         matrix:
-          node-version: [15.x]
+          node-version: [12.x]
       steps:
         - uses: actions/checkout@v1
 
@@ -26,10 +26,10 @@ jobs:
           with:
             node-version: ${{ matrix.node-version }}
 
-        - name: npm install and npm run build and remove src files
+        - name: npm install and npm run build
           run: |
-            npm install --prefix frontend
-            npm run build:prod --prefix frontend
+            npm i --prefix ./frontend/
+            npm run build:prod --prefix ./frontend
             bash prep_files.sh
 
         - name: Push Build to Master
