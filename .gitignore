@@ -2,7 +2,7 @@
 node_modules
 wallet
 frontend/dist
-server/static
+/static
 .vscode
 # compiled output
 /dist
