@@ -12,7 +12,7 @@ let network = require('./fabric/network.js.js');
 const static_folder = 'static/';
 
 const app = express();
-const port = 8081;
+const port = 5000;
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
