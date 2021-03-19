@@ -1,8 +1,9 @@
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  pull_request:
-    types: [closed] 
+  push
+  # pull_request:
+  #   types: [closed] 
 name: Deploy Angular to Glitch 
 jobs:
   build:
@@ -21,6 +22,7 @@ jobs:
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
               ${{ runner.os }}-node-
+
         - name: Node ${{ matrix.node-version }}
           uses: actions/setup-node@v1
           with:
@@ -32,17 +34,22 @@ jobs:
             npm run build:prod --prefix ./frontend
             bash prep_files.sh
 
-        - name: Push Build to Master
-          uses: mikeal/publish-to-github-action@master
-          env:
-            GITHUB_TOKEN: ${{ secrets.TOKEN }}
-            BRANCH_NAME: main
+        - name: Assign Files to deploy branch
+          run: |
+            git config user.email "niwal7@morgan.edu"
+            git config user.name "NWalker4483"
+            git add .
+            git commit -m "Default Deploy Message"
+            git remote set-url origin https://NWalker4483:${{secrets.TOKEN}}@github.com/NWalker4483/woof.git
+            git remote -v
+            git checkout -b deploy
+            git push origin HEAD:deploy --force
 
         - name: repo-sync
           uses: wei/git-sync@v1
           env:
             SOURCE_REPO: "https://github.com/NWalker4483/woof.git"
-            SOURCE_BRANCH: "main"
+            SOURCE_BRANCH: "deploy"
             DESTINATION_REPO: ${{ secrets.GLITCH_GIT_URL }}
             DESTINATION_BRANCH: "master"
           with:
