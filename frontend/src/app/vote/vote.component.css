@@ -11,8 +11,10 @@
   display: block;
   overflow-x: auto;
   white-space: nowrap;
+  
 }
 
 .testimonial-group > .row > .dog-card {
   display: inline-block;
 }
+

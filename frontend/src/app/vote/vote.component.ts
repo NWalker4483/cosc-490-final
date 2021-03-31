@@ -1,24 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Breed } from '../models/breed.model';
+
+import { Proposal } from '../models/proposal.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
-  selector: 'app-breed-voter',
-  templateUrl: './breed-voter.component.html',
-  styleUrls: ['./breed-voter.component.css']
+  selector: 'app-vote',
+  templateUrl: './vote.component.html',
+  styleUrls: ['./vote.component.css']
 })
-export class BreedVoterComponent implements OnInit {
+export class VoteComponent implements OnInit {
 
-  ActiveProposals: JSON;
+  ActiveProposals: Proposal[] = [
+    {name: "New Fire Hydrant", description: "efefs", image_url: ""},
+    {name: "New Fire Hydrant", description: "efefs", image_url: ""}];
   breedOptions: Breed[] = [];
   form: FormGroup;
-  sliderOptions: Options = {
-    floor: 1,
-    ceil: 6,
-    step: 1
-  };
 
   constructor(private api: ApiService, ) {
       this.form = new FormGroup({
@@ -30,7 +29,6 @@ export class BreedVoterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.getBreeds();
     this.api.getActiveProposals().subscribe(data => console.log(data));
     this.onChanges();
   }
