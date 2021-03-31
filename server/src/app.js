@@ -8,11 +8,11 @@ const util = require('util');
 const path = require('path');
 const fs = require('fs');
 
-let network = require('./fabric/network.js.js');
+let network = require('./fabric/network.js');
 const static_folder = 'static/';
 
 const app = express();
-const port = 8081;
+const port = 5000;
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
