@@ -38,7 +38,7 @@ jobs:
           run: |
             npm i --prefix ./frontend
         
-        - name: npm build:prod
+        - name: Run npm build:prod
           run: |
             npm run build:prod --prefix ./frontend
         
