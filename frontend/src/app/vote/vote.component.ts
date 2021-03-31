@@ -15,6 +15,9 @@ export class VoteComponent implements OnInit {
 
   ActiveProposals: Proposal[] = [
     {name: "New Fire Hydrant", description: "efefs", image_url: ""},
+    {name: "New Fire Hydrant", description: "efefs", image_url: ""},
+    {name: "New Fire Hydrant", description: "efefs", image_url: ""},
+    {name: "New Fire Hydrant", description: "efefs", image_url: ""},
     {name: "New Fire Hydrant", description: "efefs", image_url: ""}];
   breedOptions: Breed[] = [];
   form: FormGroup;

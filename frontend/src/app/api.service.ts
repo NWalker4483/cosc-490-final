@@ -7,6 +7,8 @@ import {Breed} from './models/breed.model';
 import { of } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { VoterData } from './models/register_data.model';
+import { Ballot } from './models/ballot.model';
 
 
 
@@ -20,6 +22,26 @@ export class ApiService {
   getActiveProposals(){
     const url = `${environment.API_URL}/queryAll`;
     return this.http.get(url).pipe(
+            catchError(this.handleError<JSON>('getHeroes', JSON))
+          );
+  }
+
+  castBallot(ballot: Ballot){
+    const url = `${environment.API_URL}/registerVoter`;
+    return this.http.post(url, ballot).pipe(
+            catchError(this.handleError<JSON>('getHeroes', JSON))
+          );  }
+
+  registerVoter(data: VoterData){
+    const url = `${environment.API_URL}/registerVoter`;
+    return this.http.post(url, data).pipe(
+            catchError(this.handleError<JSON>('getHeroes', JSON))
+          );
+  }
+
+  validateVoter(data: VoterData){
+    const url = `${environment.API_URL}/validateVoter`;
+    return this.http.post(url, data).pipe(
             catchError(this.handleError<JSON>('getHeroes', JSON))
           );
   }
