@@ -14,13 +14,15 @@
     <label for="two">TBA (Independent)</label>
     <br>
     <input type="radio" id="two" value="Libertarian" v-model="picked">
-    <label for="two">TBA (Libertarian)</label>
+    <label for="two">Increase Library Hours.</label>
     <br>
     <br>
-    <span v-if="picked">
-      Picked:
-      <b>{{ picked }}</b>
-    </span>
+ 
+ <span v-if= " picked">
+  Picked:
+  <b> {{ picked }}</b>
+  </span?
+
     <br>
     <br>
     <!--span><b>{{ response }}</b></span><br /-->

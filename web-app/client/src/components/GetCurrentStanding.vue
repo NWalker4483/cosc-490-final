@@ -57,7 +57,7 @@ export default {
             "Democrat",
             "Green",
             "Independent",
-            "Libertarian",
+            "📚",
             "Republican"
           ]
         },

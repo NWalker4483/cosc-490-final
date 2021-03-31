@@ -1,10 +1,10 @@
 <template>
   <div class="posts">
-    <h1>2020 Presidential Election</h1>
-    <h3>If you are a registered voter, enter your voterId below</h3>
+    <h1>Campus Propals</h1>
+<h3>If you are a registered voter, enter your Student ID # below</h3>
     <!--span><b>{{ response }}</b></span><br /-->
     <form v-on:submit="validateVoter">
-      <input type="text" v-model="loginData.voterId" placeholder="Enter VoterId">
+<input type="text" v-model="loginData.voterId" placeholder="Enter Student ID #">
       <br>
 
       <input type="submit" value="Login">
@@ -19,13 +19,13 @@
     <br>
     <h3>Otherwise, fill out the form below to register!</h3>
     <form v-on:submit="registerVoter">
-      <input type="text" v-model="registerData.voterId" placeholder="Enter Drivers License">
+<input type="text" v-model="registerData.voterId" placeholder="Enter Morgan ID #">
       <br>
-      <input type="text" v-model="registerData.registrarId" placeholder="Enter Registrar ID">
+<input type="text" v-model="registerData.registrarId" placeholder="Enter Student ID #">
       <br>
-      <input type="text" v-model="registerData.firstName" placeholder="Enter first name">
+      <input type="text" v-model="registerData.firstName" placeholder="Enter First name">
       <br>
-      <input type="text" v-model="registerData.lastName" placeholder="Enter last name">
+      <input type="text" v-model="registerData.lastName" placeholder="Enter Last name">
       <br>
       <input type="submit" value="Register">
     </form>
