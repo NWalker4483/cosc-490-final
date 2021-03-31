@@ -18,7 +18,7 @@ export class VoteComponent implements OnInit {
     {mock_id: "Green", name: "Student Bike Stations", description: "asdcsba C sa", image_url: "https://news.morgan.edu/wp-content/uploads/PAG7332-660x330.jpg"},
     {mock_id: "Independent", name: "Outdoor Activity Clubs", description: "efeads saCfs", image_url: "https://media-cdn.tripadvisor.com/media/photo-s/06/37/06/a6/morgan-monroe-state-forest.jpg"},
     {mock_id: "Libertarian", name: "Student Pet Care", description: "blah blah blah yah", image_url: "https://miro.medium.com/max/1400/1*1RqtX6heJVDOQ4bMHoT6ew.jpeg"},
-    {mock_id: "Republican", name: "In-Person Graduation", description: "efefs", image_url: "https://news.morgan.edu/wp-content/uploads/feat-decgrad17.jpg"}];
+    {mock_id: "Republican", name: "In-Person Graduation ", description: "efefs", image_url: "https://news.morgan.edu/wp-content/uploads/feat-decgrad17.jpg"}];
   breedOptions: Breed[] = [];
   form: FormGroup;
 
