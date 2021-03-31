@@ -24,25 +24,31 @@ export class ApiService {
     return this.http.get(url).pipe(
             catchError(this.handleError<JSON>('getHeroes', JSON))
           );
+  } 
+  queryAll(){
+    const url = `${environment.API_URL}/queryAll`;
+    return this.http.get(url).pipe(
+            catchError(this.handleError<JSON>('queryAll', JSON))
+          );
   }
 
   castBallot(ballot: Ballot){
     const url = `${environment.API_URL}/registerVoter`;
     return this.http.post(url, ballot).pipe(
-            catchError(this.handleError<JSON>('getHeroes', JSON))
+            catchError(this.handleError<JSON>('castBallot', JSON))
           );  }
 
   registerVoter(data: VoterData){
     const url = `${environment.API_URL}/registerVoter`;
     return this.http.post(url, data).pipe(
-            catchError(this.handleError<JSON>('getHeroes', JSON))
+            catchError(this.handleError<JSON>('registerVoter', JSON))
           );
   }
 
   validateVoter(data: VoterData){
     const url = `${environment.API_URL}/validateVoter`;
     return this.http.post(url, data).pipe(
-            catchError(this.handleError<JSON>('getHeroes', JSON))
+            catchError(this.handleError<JSON>('validateVoter', JSON))
           );
   }
     private handleError<T>(operation = 'operation', result?: T) {

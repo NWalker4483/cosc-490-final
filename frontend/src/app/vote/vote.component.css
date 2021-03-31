@@ -1,20 +1,18 @@
 .dog-card {
     width: 300px;
+    text-align: center;
   }
   
   .dog-header-image {
     background-size: cover;
   }
-  
-/* The heart of the matter */
-.testimonial-group > .row {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  
+
+mat-card img{
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 200px;
 }
 
-.testimonial-group > .row > .dog-card {
-  display: inline-block;
+.mat-card-header{
+  background-color:lightgray !important;
 }
-
