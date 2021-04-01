@@ -1,13 +1,12 @@
 <div class="container">
     <mat-card>
+        <mat-card-header>
+            <mat-card-title>Vote Count 2020</mat-card-title>
+        </mat-card-header>
         <div style="display: block">
-            <canvas baseChart
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
-                    [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType">
             </canvas>
-          </div>
+        </div>
     </mat-card>
 </div>
