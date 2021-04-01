@@ -20,8 +20,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  GetCurrentStanding(){
+    const url = `${environment.API_URL}/active`;
+    return this.http.get(url).pipe(
+            catchError(this.handleError<Proposal[]>('getActiveProposals', []))
+          );
+  }
+
   getActiveProposals(){
-    const url = `${environment.API_URL}/queryAll`;
+    const url = `${environment.API_URL}/active`;
     return this.http.get(url).pipe(
             catchError(this.handleError<Proposal[]>('getActiveProposals', []))
           );
@@ -30,6 +37,13 @@ export class ApiService {
     const url = `${environment.API_URL}/queryAll`;
     return this.http.get(url).pipe(
             catchError(this.handleError<JSON>('queryAll', JSON))
+          );
+  }
+
+  queryByKey(key: string){
+    const url = `${environment.API_URL}/queryByKey`;
+    return this.http.post(url, key).pipe(
+            catchError(this.handleError<JSON>('queryByKey', JSON))
           );
   }
 
