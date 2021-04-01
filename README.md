@@ -8,3 +8,5 @@ npm --version
 
 To run this project cd into frontend and run `npm run start`
 This launches the server and the frontend 
+
+[https://msu-proposals.glitch.me](https://msu-proposals.glitch.me)

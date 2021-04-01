@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="container">
+
+    <mat-card>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <mat-card-header>
+                <mat-card-title>Registration Form</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div>
+                    <label for="voterId">
+                        Name
+                    </label>
+                    <input id="voterId" type="text" formControlName="voterId">
+                </div>
+                <div>
+                    <label for="registrarId">
+                        Name
+                    </label>
+                    <input id="registrarId" type="text" formControlName="registrarId">
+                </div>
+                <div>
+                    <label for="firstName">
+                        Name
+                    </label>
+                    <input id="firstName" type="text" formControlName="firstName">
+                </div>
+                <div>
+                    <label for="lastName">
+                        Name
+                    </label>
+                    <input id="lastName" type="text" formControlName="lastName">
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit">Register</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+
+</div>
