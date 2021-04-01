@@ -18,7 +18,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 // ---- SERVE STATIC FILES ---- //
-app.use('/',express.static(static_folder))
+app.use('/', express.static(static_folder))
 
 const configPath = path.join(process.cwd(), './config.json');
 const configJSON = fs.readFileSync(configPath, 'utf8');
@@ -110,7 +110,7 @@ app.post('/registerVoter', async (req, res) => {
     //connect to network and update the state with voterId  
 
     let invokeResponse = await network.invoke(networkObj, false, 'createVoter', args);
-    
+
     if (invokeResponse.error) {
       res.send(invokeResponse.error);
     } else {
@@ -119,12 +119,8 @@ app.post('/registerVoter', async (req, res) => {
       let parsedResponse = JSON.parse(invokeResponse);
       parsedResponse += '. Use voterId to login above.';
       res.send(parsedResponse);
-
     }
-
   }
-
-
 });
 
 //used as a way to login the voter to the app and make sure they haven't voted before 

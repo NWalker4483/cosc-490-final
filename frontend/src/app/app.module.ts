@@ -33,7 +33,9 @@ import { PollsComponent } from './polls/polls.component';
     NgxSliderModule,
     HttpClientModule,
     MatFormFieldModule,
+    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

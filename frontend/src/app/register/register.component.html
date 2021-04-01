@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container">    
     <mat-card>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <mat-card-header>
@@ -7,27 +6,27 @@
             </mat-card-header>
 
             <mat-card-content>
-                <div>
+                <div class="form-group">
                     <label for="voterId">
-                        Name
+                        Voter ID
                     </label>
                     <input id="voterId" type="text" formControlName="voterId">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="registrarId">
-                        Name
+                        Registrar ID
                     </label>
                     <input id="registrarId" type="text" formControlName="registrarId">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="firstName">
-                        Name
+                        First Name
                     </label>
                     <input id="firstName" type="text" formControlName="firstName">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="lastName">
-                        Name
+                        Last Name
                     </label>
                     <input id="lastName" type="text" formControlName="lastName">
                 </div>
