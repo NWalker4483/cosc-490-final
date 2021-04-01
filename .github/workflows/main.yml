@@ -37,7 +37,7 @@ jobs:
 
         - name: Install node dependancies
           run: |
-            npm i --prefix ./frontend
+            npm install --prefix ./frontend
         
         - name: Run npm build:prod
           run: |
