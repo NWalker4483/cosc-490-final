@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PollsComponent } from './polls/polls.component';
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
 const routes: Routes = [
@@ -12,6 +13,12 @@ const routes: Routes = [
   },{
   path: 'register',
   component: RegisterComponent
+},{
+  path: 'propose',
+  component: PollsComponent
+},{
+  path: 'polls',
+  component: PollsComponent
 },
 ];
 

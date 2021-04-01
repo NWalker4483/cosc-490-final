@@ -15,12 +15,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
+import { PollsComponent } from './polls/polls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    VoteComponent
+    VoteComponent,
+    PollsComponent
   ],
   imports: [
     MatSidenavModule,
