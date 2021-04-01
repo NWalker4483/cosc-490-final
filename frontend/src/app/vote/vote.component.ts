@@ -29,12 +29,10 @@ export class VoteComponent implements OnInit {
         input2: new FormControl([1])
       });
      }
-  castBallot(){
-    
+  castBallot(proposal: Proposal){
+    console.log(proposal);
   }
   ngOnInit(): void {
     // this.api.getActiveProposals().subscribe(data => {this.ActiveProposals = data;});
   }
-
-
 }

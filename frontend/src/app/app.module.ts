@@ -16,6 +16,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
 import { PollsComponent } from './polls/polls.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PollsComponent } from './polls/polls.component';
   ],
   imports: [
     MatSidenavModule,
+    ChartsModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
