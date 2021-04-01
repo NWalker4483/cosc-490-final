@@ -7,7 +7,7 @@ import {Breed} from './models/breed.model';
 import { of } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { VoterData } from './models/register_data.model';
+import { VoterData } from './models/voter_data.model';
 import { Ballot } from './models/ballot.model';
 import { Proposal } from './models/proposal.model';
 
