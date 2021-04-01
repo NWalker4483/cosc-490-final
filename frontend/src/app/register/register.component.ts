@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class RegisterComponent implements OnInit {
 
-
+  response: string = "Blah Message";
   constructor(private api: ApiService, private formBuilder: FormBuilder) { }
 
   registerForm = this.formBuilder.group({
@@ -23,8 +23,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.warn('Your order has been submitted', this.registerForm.value);
-    this.api.registerVoter(this.registerForm.value).subscribe((data) => {console.log(data)})
+    console.warn('Your registration has been submitted', this.registerForm.value);
+    this.api.registerVoter(this.registerForm.value).subscribe((data) => {this.response = data.toString()})
     this.registerForm.reset();
   }
+
 }
