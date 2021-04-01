@@ -14,11 +14,11 @@ import { Options } from '@angular-slider/ngx-slider';
 export class VoteComponent implements OnInit {
 
   ActiveProposals: Proposal[] = [
-    {mock_id: "Democrat", name: "New Football Helmets", description: "bjhsbcwvfdcf df scd wdsz csd cw dsb zc wjsab ihigfotujv  ui ojhg   h9uiohtg sbjcvwdhjsvcws", image_url: "http://dailyorange.com/resize/800/wp-content/uploads/2020/10/31185736/2020-10-31-dn-sufootball27.jpg"},
-    {mock_id: "Green", name: "Student Bike Stations", description: "asdcsba C sa", image_url: "https://news.morgan.edu/wp-content/uploads/PAG7332-660x330.jpg"},
-    {mock_id: "Independent", name: "Outdoor Activity Clubs", description: "efeads saCfs", image_url: "https://media-cdn.tripadvisor.com/media/photo-s/06/37/06/a6/morgan-monroe-state-forest.jpg"},
-    {mock_id: "Libertarian", name: "Student Pet Care", description: "blah blah blah yah", image_url: "https://miro.medium.com/max/1400/1*1RqtX6heJVDOQ4bMHoT6ew.jpeg"},
-    {mock_id: "Republican", name: "In-Person Graduation ", description: "efefs", image_url: "https://news.morgan.edu/wp-content/uploads/feat-decgrad17.jpg"}];
+    {mock_id: "Democrat", name: "New Football Helmets", description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.", image_url: "http://dailyorange.com/resize/800/wp-content/uploads/2020/10/31185736/2020-10-31-dn-sufootball27.jpg"},
+    {mock_id: "Green", name: "Student Bike Stations", description: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.", image_url: "https://news.morgan.edu/wp-content/uploads/PAG7332-660x330.jpg"},
+    {mock_id: "Independent", name: "Outdoor Activity Clubs", description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.", image_url: "https://media-cdn.tripadvisor.com/media/photo-s/06/37/06/a6/morgan-monroe-state-forest.jpg"},
+    {mock_id: "Libertarian", name: "Student Pet Care", description: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?", image_url: "https://miro.medium.com/max/1400/1*1RqtX6heJVDOQ4bMHoT6ew.jpeg"},
+    {mock_id: "Republican", name: "In-Person Graduation ", description: "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.", image_url: "https://news.morgan.edu/wp-content/uploads/feat-decgrad17.jpg"}];
   breedOptions: Breed[] = [];
   form: FormGroup;
 
@@ -29,9 +29,11 @@ export class VoteComponent implements OnInit {
         input2: new FormControl([1])
       });
      }
-
+  castBallot(){
+    
+  }
   ngOnInit(): void {
-    this.api.getActiveProposals().subscribe(data => console.log(data));
+    // this.api.getActiveProposals().subscribe(data => {this.ActiveProposals = data;});
   }
 
 

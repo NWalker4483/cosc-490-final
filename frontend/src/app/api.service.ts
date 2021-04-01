@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { VoterData } from './models/register_data.model';
 import { Ballot } from './models/ballot.model';
+import { Proposal } from './models/proposal.model';
 
 
 
@@ -22,7 +23,7 @@ export class ApiService {
   getActiveProposals(){
     const url = `${environment.API_URL}/queryAll`;
     return this.http.get(url).pipe(
-            catchError(this.handleError<JSON>('getHeroes', JSON))
+            catchError(this.handleError<Proposal[]>('getActiveProposals', []))
           );
   } 
   queryAll(){
