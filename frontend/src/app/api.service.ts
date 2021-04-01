@@ -48,7 +48,7 @@ export class ApiService {
   }
 
   castBallot(ballot: Ballot){
-    const url = `${environment.API_URL}/registerVoter`;
+    const url = `${environment.API_URL}/castBallot`;
     return this.http.post(url, ballot).pipe(
             catchError(this.handleError<JSON>('castBallot', JSON))
           );  }

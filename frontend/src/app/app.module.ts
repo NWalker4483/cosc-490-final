@@ -17,13 +17,15 @@ import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
 import { PollsComponent } from './polls/polls.component';
 import { ChartsModule } from 'ng2-charts';
+import { ProposeComponent } from './propose/propose.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     VoteComponent,
-    PollsComponent
+    PollsComponent,
+    ProposeComponent
   ],
   imports: [
     MatSidenavModule,
