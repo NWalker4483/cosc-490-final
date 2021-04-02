@@ -11,7 +11,7 @@ export class PollsComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['2006', '2007', '2008', '2009', '2010'];
+  public barChartLabels = ['Proposal 1', 'Proposal 2', 'Proposal 3', 'Proposal 4', 'Proposal 5'];
   public barChartType = 'bar';
   public barChartLegend = false;
   public barChartData = [
