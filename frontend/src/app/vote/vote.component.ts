@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Breed } from '../models/breed.model';
+import { Ballot } from '../models/ballot.model';
 
 import { Proposal } from '../models/proposal.model';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -19,8 +19,8 @@ export class VoteComponent implements OnInit {
     {mock_id: "Independent", name: "Outdoor Activity Clubs", description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.", image_url: "https://media-cdn.tripadvisor.com/media/photo-s/06/37/06/a6/morgan-monroe-state-forest.jpg"},
     {mock_id: "Libertarian", name: "Student Pet Care", description: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?", image_url: "https://miro.medium.com/max/1400/1*1RqtX6heJVDOQ4bMHoT6ew.jpeg"},
     {mock_id: "Republican", name: "In-Person Graduation ", description: "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.", image_url: "https://news.morgan.edu/wp-content/uploads/feat-decgrad17.jpg"}];
-  breedOptions: Breed[] = [];
   form: FormGroup;
+  electionID: string;
 
   constructor(private api: ApiService, ) {
       this.form = new FormGroup({
@@ -31,8 +31,12 @@ export class VoteComponent implements OnInit {
      }
   castBallot(proposal: Proposal){
     console.log(proposal);
+    var ballot: Ballot = {voterId: "12345", electionId:"c", selection: proposal.mock_id};
+    // this.voterID = "23567"
+    // this.api.castBallot();
   }
   ngOnInit(): void {
-    // this.api.getActiveProposals().subscribe(data => {this.ActiveProposals = data;});
+    this.api.queryWithQueryString("election").subscribe(data => {console.log(data)})
+    //this.api.queryWithQueryString().subscribe(data => {console.log(data)});
   }
 }

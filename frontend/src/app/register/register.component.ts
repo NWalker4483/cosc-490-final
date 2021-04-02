@@ -13,10 +13,10 @@ export class RegisterComponent implements OnInit {
   constructor(private api: ApiService, private formBuilder: FormBuilder) { }
 
   registerForm = this.formBuilder.group({
-    voterId: "",
-    registrarId: "",
-    firstName: "",
-    lastName: ""
+    voterId: "12345",
+    registrarId: "12345",
+    firstName: "Nile",
+    lastName: "Walker"
   });
 
   ngOnInit(): void {
@@ -27,5 +27,4 @@ export class RegisterComponent implements OnInit {
     this.api.registerVoter(this.registerForm.value).subscribe((data) => {this.response = data.toString()})
     this.registerForm.reset();
   }
-
 }

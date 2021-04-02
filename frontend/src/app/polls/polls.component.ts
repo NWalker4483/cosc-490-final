@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-polls',
@@ -17,9 +18,10 @@ export class PollsComponent implements OnInit {
     {data: [65, 59, 80, 81, 56, 55], label: 'Vote Count'}
   ];
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getCurrentStanding().subscribe((data) => {console.log(data)} )
   }
 
 }
