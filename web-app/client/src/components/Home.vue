@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <h1>2020 Presidential Election</h1>
+    <h1>Third Time's a Charm</h1>
     <h3>If you are a registered voter, enter your voterId below</h3>
     <!--span><b>{{ response }}</b></span><br /-->
     <form v-on:submit="validateVoter">
