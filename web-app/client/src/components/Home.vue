@@ -1,7 +1,12 @@
 <template>
   <div class="posts">
+<<<<<<< HEAD
     <h1>Campus Propals</h1>
 <h3>If you are a registered voter, enter your Student ID # below</h3>
+=======
+    <h1>Third Time's a Charm</h1>
+    <h3>If you are a registered voter, enter your voterId below</h3>
+>>>>>>> 5ad2b6f76fead56316112c785c0a256ea3629bf3
     <!--span><b>{{ response }}</b></span><br /-->
     <form v-on:submit="validateVoter">
 <input type="text" v-model="loginData.voterId" placeholder="Enter Student ID #">
