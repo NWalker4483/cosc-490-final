@@ -1,50 +1,60 @@
 <template>
-  <div id="app">
-    <img alt="Vote logo" src="./assets/vote.png">    
-      
-        <p><router-link to="/">Home</router-link>&nbsp;          
-        <!-- <router-link to="/castBallot">Cast Ballot</router-link>&nbsp; -->
-        <router-link to="/QueryAll">QueryAll</router-link></p>
-        <router-link to="/queryWithQueryString">Query by Type</router-link>&nbsp;
-        <router-link to="/queryByKey">Search by Key</router-link>&nbsp;
-        <router-link to="/getCurrentStanding">Get Poll Standings</router-link>&nbsp;
-      
-      <router-view></router-view>
-    </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <HelloWorld/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld';
 
 export default {
-  name: 'app'  
-}
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.chart-wrapper {
-  width: 100%;
-  height: 700px;
-}
-.echarts {
-  width: 100%;
-  height: 100%;
-}
-
-#loader {
-  position:fixed;
-  padding-top: 250px;
-}
-
-.chart-wrapper {
-  position:fixed;
-  padding-left:32%;
-}
-</style>
