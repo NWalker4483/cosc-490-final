@@ -70,10 +70,3 @@ jobs:
             DESTINATION_BRANCH: "master"
           with:
             args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
-
-
-<<<<<<< HEAD
-  
-=======
-  
->>>>>>> master
