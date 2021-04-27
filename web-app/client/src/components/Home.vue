@@ -1,40 +1,72 @@
 <template>
-  <div class="posts">
-    <h1>Campus Propals</h1>
-<h3>If you are a registered voter, enter your Student ID # below</h3>
-    <!--span><b>{{ response }}</b></span><br /-->
-    <form v-on:submit="validateVoter">
-<input type="text" v-model="loginData.voterId" placeholder="Enter Student ID #">
-      <br>
+  <div class="posts content-justify-center">
+    <img alt="Vote logo" src="../assets/msu.png" height="300" />
 
-      <input type="submit" value="Login">
-      <br>
-      <br>
+    <p class="text-justify">
+    <h3>Fill out the form below to register for the Morgan Campus Voting System. Make change at MSU today!</h3>
+    </p>
+    <v-form v-on:submit="registerVoter" id="register-form" >
+      <v-container>
+        <v-row>
+          <v-col cols="6" sm="6" md="4">
+            <v-text-field
+              label="First Name"
+              required
+              v-model="registerData.firstName"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="6" sm="6" md="4">
+            <v-text-field
+              label="Last Name"
+              required
+              v-model="registerData.lastName"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6" sm="4" md="4">
+            <v-text-field
+              label="Morgan Student ID"
+              required
+              v-model="registerData.voterId"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="6" sm="4" md="4">
+            <v-text-field
+              label="Morgan Voting ID"
+              required
+              v-model="registerData.registrarId"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-container>
+      <v-btn type="submit" color="success" form="register-form">Register</v-btn>
+    </v-form>
+    <p class="text-justify">
+     <h4> If you are already a registered voter, you can confirm your Voter ID # below </h4>
+    </p>
+   <v-form v-on:submit="validateVoter" id="verify-form">
+
+ <v-text-field
+              label="Morgan Voter ID #"
+              required
+              v-model="loginData.voterId"
+            ></v-text-field>
+      <v-btn type="submit" color="success" form="verify-form">Verify</v-btn>
+
       <span v-if="loginReponse">
         <b>{{ loginReponse.data }}</b>
       </span>
-      <br>
-    </form>
+    </v-form>
 
-    <br>
-    <h3>Otherwise, fill out the form below to register!</h3>
-    <form v-on:submit="registerVoter">
-<input type="text" v-model="registerData.voterId" placeholder="Enter Morgan ID #">
-      <br>
-<input type="text" v-model="registerData.registrarId" placeholder="Enter Student ID #">
-      <br>
-      <input type="text" v-model="registerData.firstName" placeholder="Enter First name">
-      <br>
-      <input type="text" v-model="registerData.lastName" placeholder="Enter Last name">
-      <br>
-      <input type="submit" value="Register">
-    </form>
-    <br>
     <span v-if="registerReponse">
       <b>{{ registerReponse.data }}</b>
     </span>
-    <br>
-    <vue-instant-loading-spinner id='loader' ref="Spinner"></vue-instant-loading-spinner>
+    <br />
+    <vue-instant-loading-spinner
+      id="loader"
+      ref="Spinner"
+    ></vue-instant-loading-spinner>
   </div>
 </template>
 
@@ -49,19 +81,18 @@ export default {
       loginData: {},
       registerData: {},
       registerReponse: {
-        data: ""
+        data: "",
       },
       loginReponse: {
-        data: ""
-      }
+        data: "",
+      },
     };
   },
   components: {
-    VueInstantLoadingSpinner
+    VueInstantLoadingSpinner,
   },
   methods: {
     async registerVoter() {
-
       await this.runSpinner();
       const apiResponse = await PostsService.registerVoter(
         this.registerData.voterId,
@@ -80,7 +111,7 @@ export default {
 
       if (!this.loginData.voterId) {
         console.log("!thislogin");
-        let response = 'Please enter a VoterId';
+        let response = "Please enter a VoterId";
         this.loginReponse.data = response;
         await this.hideSpinner();
       } else {
@@ -91,7 +122,6 @@ export default {
         console.log(apiResponse.data);
 
         if (apiResponse.data.error) {
-          // console.log(apiResponse);
           console.log(apiResponse.data.error);
           this.loginReponse = apiResponse.data.error;
         } else {
@@ -109,7 +139,7 @@ export default {
     },
     async hideSpinner() {
       this.$refs.Spinner.hide();
-    }
-  }
+    },
+  },
 };
 </script>
