@@ -43,9 +43,9 @@ jobs:
             npm i --prefix ./web-app/client
             npm i --prefix ./web-app/server 
         
-        # - name: Run npm build:prod
-        #   run: |
-        #     npm run build:prod --prefix ./frontend
+        - name: Run npm build
+          run: |
+            npm run build --prefix ./web-app/client
         
         - name: Remove Non-Essential Files 
           run: |
