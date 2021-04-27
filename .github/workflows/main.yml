@@ -11,7 +11,7 @@ on:
 name: Deploy Angular to Glitch 
 jobs:
   build:
-      # if: github.event.pull_request.merged == true
+      if: github.event.pull_request.merged == true
       runs-on: ubuntu-latest
       strategy:
         matrix:
@@ -38,6 +38,7 @@ jobs:
           with:
             node-version: ${{ matrix.node-version }}
 
+<<<<<<< HEAD
         - name: Install node dependancies
           run: |
             npm install --prefix ./frontend
@@ -45,6 +46,15 @@ jobs:
         - name: Run npm build:prod
           run: |
             npm run build:prod --prefix ./frontend
+=======
+        # - name: Install node dependancies
+        #   run: |
+        #     npm i --prefix ./frontend
+        
+        # - name: Run npm build:prod
+        #   run: |
+        #     npm run build:prod --prefix ./frontend
+>>>>>>> master
         
         - name: Remove Non-Essential Files 
           run: |
@@ -72,4 +82,8 @@ jobs:
             args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
 
 
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> master

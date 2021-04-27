@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chart.js": "^2.9.4",
+    "echarts": "^4.9.0",
+    "material-design-icons-iconfont": "^6.1.0",
+    "vue": "^2.6.12",
+    "vue-chartjs": "^3.5.1",
+    "vue-echarts": "^4.1.0",
+    "vue-instant-loading-spinner": "^1.0.0",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^3.9.2",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.3.1",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.7.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
