@@ -14,7 +14,7 @@
       max-width="300px"
       solo
     ></v-select>
-      <chart :options="chartOptionsBar" auto-resize></chart>
+      <chart :options="chartOptionsBar" autoresize></chart>
    
     <span v-if="response">
       <b>{{ response }}</b>
