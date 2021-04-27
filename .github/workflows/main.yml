@@ -38,9 +38,10 @@ jobs:
           with:
             node-version: ${{ matrix.node-version }}
 
-        # - name: Install node dependancies
-        #   run: |
-        #     npm i --prefix ./frontend
+        - name: Install node dependancies
+          run: |
+            npm i --prefix ./web-app/client
+            npm i --prefix ./web-app/server 
         
         # - name: Run npm build:prod
         #   run: |

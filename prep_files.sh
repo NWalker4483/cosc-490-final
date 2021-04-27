@@ -1,3 +1,4 @@
-rm -rf contract # Remove front end code to save space
-# mv server/* . # Move server files to root so that glitch can find them
-# rm -rf server # remove leftover folder
+rm -rf contract
+mv web-app/* .
+mv client/* .
+rm -rf web-app client
