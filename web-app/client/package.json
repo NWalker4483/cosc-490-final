@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "deploy": "concurrently 'npm run serve' 'cd ../server; npm run start'",
+    "deploy:dev": "concurrently 'npm run serve' 'cd ../server; npm run start'",
+    "deploy": "concurrently 'npm run serve' 'cd server; npm run start'",
     "build": "vue-cli-service build"
   },
   "dependencies": {
